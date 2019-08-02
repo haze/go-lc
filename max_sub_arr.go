@@ -1,40 +1,37 @@
 package main
 
 import "fmt"
+import "math"
 
-func sumWindow(source []int, left, right int) int {
-	window := source[left:right]
-	fmt.Printf("l=%d, r=%d, s=%+v\n", left, right, window)
-	sum := 0
-	for _, v := range window {
-		sum += v
+func max(a, b int) int {
+	if a < b {
+		return b
 	}
-	return sum
+	return a
 }
 
 func maxSubArray(nums []int) int {
-	left := 0
-	right := 1
-	highest := 0
-	for right >= left && right < len(nums)-1 {
-		s := sumWindow(nums, left, right)
-		for s <= 0 {
-			// find start
-			left += 1
-			right += 1
-			s = sumWindow(nums, left, right)
+	table := make([]int, len(nums))
+	ptr := 0
+	for ptr < len(nums) {
+		if ptr-1 < 0 {
+			table[ptr] = nums[ptr]
+		} else {
+			n := nums[ptr]
+			table[ptr] = max(n+table[ptr-1], n)
 		}
-		if s > highest {
-			highest = s
-		}
-		right += 1
+		ptr += 1
 	}
-	return highest
+	highest := math.Inf(-1)
+	for _, v := range table {
+		vf := float64(v)
+		if vf > highest {
+			highest = vf
+		}
+	}
+	return int(highest)
 }
 
 func main() {
-	fmt.Println(maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4}))
-	fmt.Println(maxSubArray([]int{-2, -1}))
-	fmt.Println(maxSubArray([]int{0}))
-	fmt.Println(maxSubArray([]int{5, -10, 5, 5, 5}))
+	fmt.Println(maxSubArray([]int{-1}))
 }
