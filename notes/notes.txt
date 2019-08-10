@@ -1,0 +1,232 @@
+=== Data Structures ===
+Arrays:
+
+How do arrays resize?:
+Arrays are immutable, so they may not have dynamic length at runtime.
+To achieve resizes however {Vec, ArrayList} employs a resizing strategy that when detecthing an overflow will allocate a new array in memory, copy the old array's contents over and return the new array.
+
+What is amortization? (https://en.wikipedia.org/wiki/Amortized_analysis#Dynamic_array)
+Why is append O(1) amortized?
+
+Amortized analysis is the complexity analysis of operations versus entire algorithms.
+An example here is the dynamic array data structure seen above. Given a starting array with length n, we will have O(1) inserts until we reach n, at which we will have to reallocate which adds time on. 
+
+How to make an array or list
+Runtime complexity of find (+ if you know index or not)
+How to make 2D array
+When to use dictionaries Instead
+
+N.B. Arrays are stored cont. in memory
+
+Dictionaries:
+
+Runtime complexity of {put, get, delete}
+How to implement dictionary using only hash function + arrays | lists, (resizing)
+What a hash function is (what makes a good hash function)
+What collisions are / how they can be competed
+Why insert can be O(n) in the worst cast
+What is a set
+
+Strings:
+
+How do they work in your language ( python=immutable )
+How to add strings
+How to substring / slice strings
+How to build strings
+How to modify strings
+What is Ascii? What is Unicodce
+What is String interning
+
+Linked List:
+
+Impl single & doubly linked list
+Complexities for operations 
+(widely used for stacks & queue)
+
+Stacks & Queues:
+
+How to implement with list / linked lists
+LIFO / FIFO & which is which
+Call Stack + Space on the stack
+
+Trees:
+
+How does a tree differ from a graph
+How to implement binary and n-ary trees
+Difference between binary and n-ary
+Implement a Trie
+Know what a binary search tree is and how to search in it
+Implement a balanced binary tree (and what it is) (inserts / deletes o(log n))
+Complexities of different operations (+ difference for balanced & unbalanced)
+
+Heaps:
+
+How to implement Heap with array
+Heap Property / What is a heap
+
+Graphs:
+Implementing 3 ways:
+  Adjacency List
+  Matrix
+  Object + Pointer
+How to and what are Sparse and Dense graphs
+Directed / Undirected graphs
+
+Bit Manipulation:
+
+Explain AND
+Explain OR
+Explain XOR
+Explain NOT
+What is Two's Complement (+ Negative Numbers)
+How does python handle bits
+
+Paralell Processing:
+
+easy:
+  Sharding techniques
+
+not:
+  Starvation
+  Deadlock
+  Livelock
+  Locks
+  Mutexes
+  Semaphore
+Process vs Thread
+APIs in Language (go / python threading)
+(Python: what is GIL)
+
+=== Algorithms ===
+
+Arrays:
+
+Binary Search
+Linear Scan
+When to  use Binary Search vs Linear Scan
+Selection Rank (+ randomized) [known non-random O(n) ver]
+
+Linked Lists:
+
+Cycle in a linked list
+Converging linked list
+Reverse linked list
+Return k-th element from end
+How to add a node
+How to delete a node
+
+Binary / Bit Manipulation:
+
+What are Bit Masks
+Retrieving, setting, unsetting, flipping bits
+Counting ones set in a number (loop ++ sophisticated method)
+Using xor to swap numbers (without aux space / rid of duplicates)
+
+Sorting:
+
+Learn how to sort using library functions
+  go: sort.Ints, sort.Strings, sort.Floats...
+  python: sort()
+Implement a n^2 sort like insertion / bubble sort
+Implement a n log n sort like quicksort / merge sort
+What is counting sort?
+What is a stable sort?
+Implement in place quicksort
+Why comparison sorting has complexity of o(n log n) at best
+(Python: what timsort is)
+
+Strings: 
+
+String reversal in place (two pointers)
+Building a string in O(n)
+What is the difference between ASCII and Unicode
+Implement Anagrams / Canonicalization
+
+HashTables:
+N.B. Fast Key Lookups
+
+Implement canonicalization
+Implement counting
+How to use HashTables/sets to deduplicate items
+
+Trees:
+
+Implement Traversals:
+  Preorder, Inorder, Postorder, Level order
+Be able to traverse binary search trees
+Binary Search Tree implementation (AVL || Red/Black trees)
+
+Recursion:
+
+When can you use recursion?
+what are Base and Recursive cases
+Calculate runtime complexity using call tree as a tool
+Implement memoization of recursive function + calculate runtime complexity of memoized function
+Dynamic Programming general
+
+Stacks & Queues:
+
+DFS/BFS using Stack & Queues
+Implement Postfix evaluation & Parenthesis matching
+Recursion => Iterative using a stack
+
+Graphs:
+
+DFS / BFS overview (+ which is better when)
+Connected component search
+Implement Dijkstra's Algorithm
+Implement Topological sort
+Implement A*
+Implement Minimal Spanning Trees
+Implement Max Flow
+
+Concurrency / Paralell Processing:
+
+Dining Philosophers problem
+Producer-Consumer problem
+Implement sharding
+Think about design problems that can use compute farms
+  [Google Web Spider, Petasort, Shortest path on Sharded graph]
+
+NP Problems: can't solve optimally and efficently
+
+What do NP and NP complete mean (not "not polynomial")
+Discuss heuristic non-optimal solutions
+Recognize certain NP problems:
+  Traveling Salesman, Knapsack, Subset sum, Vertex Cover, Hamiltonian Path, Graph Coloring, 3-SAT
+
+Math:
+Values of 2^n up to 2^10
+2^1 = 2
+2^2 = 4
+2^3 = 8
+2^4  = 16
+2^5 = 32
+2^6 = 64
+2^7 = 128
+2^8 = 256
+2^9 = 512
+2^10 = 1,024
+Estimates for 2^20, 2^30, 2^40 (2^10 == 1000)
+Permutations & Combinations (& formulas)
+Probability & Expected Value basics
+Big O notation
+Binary, Decimal, Hex & conversions
+Induction
+Estimation Problems
+Game Theory
+
+Design Questions:
+
+| OO Design
+| Architecture
+\
+ | Nouns (Classes)
+ | Verbs (Methods)
+
+Misc:
+
+What is: Unit Testing, Integration Testing, End-to-End testing,
+white & black box testing
+
+LRU Cache
